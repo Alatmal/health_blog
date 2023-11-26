@@ -1,10 +1,16 @@
 import  Card  from "./Card"
 
 
-const Topic = () => {
+const Topic = ({topics}) => {
   return (
     <div>
-      <Card/>
+      {topics.map((topic)=>(
+        <div>
+        <h1 key={topic.id}>{topic.name}</h1>
+        <Card/>
+      </div>
+      ))}
+      
     </div>
   )
 }

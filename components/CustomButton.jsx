@@ -1,8 +1,10 @@
 
 
-const CustomButton = () => {
+const CustomButton = ({title}) => {
   return (
-    <div>CustomButton</div>
+    <div className="mx-3">
+      <span>{title}</span>
+    </div>
   )
 }
 

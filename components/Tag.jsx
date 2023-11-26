@@ -1,11 +1,19 @@
 import CustomButton from "./CustomButton"
 
-const Tag = () => {
+
+const Tag = async ({topics}) => {
+  
   return (
-    <CustomButton>
-    <div>Tags</div>
-    </CustomButton>
-    )
+    <div>
+    {topics.map((data) => (
+    <CustomButton 
+    title={data.name}
+    key={data.id}
+    />
+    
+    ))}
+    </div>
+  )
 }
 
 
