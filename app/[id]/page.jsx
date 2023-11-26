@@ -16,3 +16,4 @@ const page = ({params: {id}}) => {
   )
 }
 
+export default page
