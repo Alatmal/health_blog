@@ -33,16 +33,14 @@ const getBlogsbyTopics = (ids, obj) => {
   return blogsByTopicId;
 }
 
+export const blogs = await getPostsData(POSTS)
+  
+const topicsData = getTopicsData(blogs)
+
+const blogsDataFiltered = getBlogsbyTopics(topicsData, blogs)
+
 const Blogs = async () => {
   
-  const blogs = await getPostsData(POSTS)
-  
-  const topicsData = getTopicsData(blogs)
-
-  const blogsDataFiltered = getBlogsbyTopics(topicsData, blogs)
-
-  
-
   return (
     <div className='text-black flex items-center justify-center h-screen flex-col'>
         <h1>Ally Health Blog</h1>

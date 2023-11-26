@@ -1,11 +1,22 @@
 import Image from "next/image"
+import Link from "next/link"
 
-const Card = ({info, urlImage, user}) => {
+
+const Card = async({urlImage, user, url}) => {
+  const sizeRgx = /{size}/gi
+  let urlLinkImage = ''
+  if(sizeRgx.test(urlImage)){
+    urlLinkImage = `https://discourse-dev.ally.day${urlImage.replace(sizeRgx,'small')}`
+  } else {
+    urlLinkImage = `https://discourse-dev.ally.day${urlImage}`
+  }
+  
   return (
     <div>
-      <Image src={urlImage} width={20} height={20}/>
+      <Image src={urlLinkImage} width={60} height={60}/>
       <div className="flex flex-colum items-center justify-center">
         <h2>{user}</h2>
+        <Link href={`/blogposts/[id]`} as={`/blogposts/${url}/page`}>View More</Link>
       </div>
     </div>
   )
