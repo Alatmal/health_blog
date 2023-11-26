@@ -8,7 +8,7 @@ const Tag = async ({topics}) => {
     {topics.map((data) => (
     <CustomButton 
     title={data.name}
-    key={data.id}
+    key={`${data.id}tags`}
     />
     
     ))}
