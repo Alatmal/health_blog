@@ -12,9 +12,9 @@ const Card = async({urlImage, user, url}) => {
   }
   
   return (
-    <div>
-      <Image src={urlLinkImage} width={60} height={60}/>
-      <div className="flex flex-colum items-center justify-center">
+    <div className="flex my-3">
+      <Image src={urlLinkImage} width={40} height={30}/>
+      <div className="flex-colum ml-5">
         <h2>{user}</h2>
         <Link href={`/${url}`}>View More</Link>
       </div>

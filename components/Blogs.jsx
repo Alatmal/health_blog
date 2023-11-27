@@ -14,7 +14,7 @@ const getTopicsData = (obj) => {
       return post;
     }
   }).map(post => {
-    return {id: post['topic_id'], name: post['topic_title']}
+    return {id: post['topic_id'], name: post['topic_title'], slug: post["topic_slug"]}
   })
   
   
@@ -42,8 +42,8 @@ const blogsDataFiltered = getBlogsbyTopics(topicsData, blogs)
 const Blogs = async () => {
   
   return (
-    <div className='text-black flex items-center justify-center h-screen flex-col'>
-        <h1>Ally Health Blog</h1>
+    <div className='text-black flex justify-center h-screen flex-col'>
+        <h1 className="text-center mb-4 text-xl">Ally Health Blog</h1>
         <div>
             <Tag topics={topicsData}/>
         </div>
