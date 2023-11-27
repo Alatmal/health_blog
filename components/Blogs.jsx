@@ -1,37 +1,7 @@
-import Image from "next/image"
 import  Tag  from "./Tag"
 import Topic from "./Topic"
 import { getPostsData, POSTS } from "@/app/libs/getPostsData"
-
-
-const getTopicsData = (obj) => {
-  const posts = obj['latest_posts'];
-  const acc = []
-  
-  const filteredTopics = posts.filter(post => {
-    if(!acc.includes(post['topic_id'])){
-      acc.push(post['topic_id'])
-      return post;
-    }
-  }).map(post => {
-    return {id: post['topic_id'], name: post['topic_title'], slug: post["topic_slug"]}
-  })
-  
-  
-  return filteredTopics
-}
-
-const getBlogsbyTopics = (ids, obj) => {
-  const posts = obj['latest_posts'];
-  const topicsId = ids.map(items=>items.id);
-  const blogsByTopicId = {}
-
-  topicsId.forEach((id) => {
-    blogsByTopicId[id] = posts.filter(item => item['topic_id'] == id)
- })
-  
-  return blogsByTopicId;
-}
+import { getTopicsData, getBlogsbyTopics } from "@/utils/utils"
 
 export const blogs = await getPostsData(POSTS)
   

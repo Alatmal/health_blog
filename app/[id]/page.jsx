@@ -1,17 +1,8 @@
 import React from 'react'
 import { blogs } from '@/components/Blogs'
 import Image from 'next/image'
+import { parseImageURL } from '@/utils/utils'
 
-const parseImageURL = (urlImage) => {
-  const sizeRgx = /{size}/gi
-  let urlLinkImage = ''
-  if(sizeRgx.test(urlImage)){
-    urlLinkImage = `https://discourse-dev.ally.day${urlImage.replace(sizeRgx,'small')}`
-  } else {
-    urlLinkImage = `https://discourse-dev.ally.day${urlImage}`
-  }
-  return urlLinkImage
-}
 
 const page = ({params: {id}}) => {
   
